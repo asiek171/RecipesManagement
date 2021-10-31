@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RecipesManagement.Domain.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace RecipesManagement.Domain.Entities
 {
-    public class Recipe
+    public class Recipe : AdiutableEntity
     {
-        public int Id { get; set; }
         public string Title { get; set; }
         public ICollection<Ingredient> Ingredients { get; set; }
         public string Description { get; set; }
