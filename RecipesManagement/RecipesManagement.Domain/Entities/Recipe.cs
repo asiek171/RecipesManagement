@@ -16,5 +16,16 @@ namespace RecipesManagement.Domain.Entities
         public ICollection<Rate> Rates { get; set; }
         public ICollection<Tag> Tags { get; set; }
         public ICollection<RecipeResource> RecipeResources { get; set; }
+        public int AuthorId { get; set; }
+        public User Author { get; set; }
+
+        public Recipe()
+        {
+            this.Ingredients = new List<Ingredient>();
+            this.RecipeCategories = new List<RecipeCategory>();
+            this.Rates = new List<Rate>();
+            this.Tags = new List<Tag>();
+            this.RecipeResources = new List<RecipeResource>();
+        }
     }
 }

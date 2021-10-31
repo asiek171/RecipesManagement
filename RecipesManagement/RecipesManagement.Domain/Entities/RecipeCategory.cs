@@ -11,5 +11,10 @@ namespace RecipesManagement.Domain.Entities
     {
         public string Value { get; set; }
         public ICollection<Recipe> Recipes { get; set; }
+
+        public RecipeCategory()
+        {
+            this.Recipes = new List<Recipe>();
+        }
     }
 }

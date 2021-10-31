@@ -14,6 +14,6 @@ namespace RecipesManagement.Domain.Common
         public DateTime? Modified { get; set; }
         public int StatusId { get; set; }
         public User InactivatedBy { get; set; }
-        public DateTime? Iactivated { get; set; }
+        public DateTime? Inactivated { get; set; }
     }
 }
