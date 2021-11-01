@@ -4,11 +4,11 @@ using System.Text;
 
 namespace RecipesManagement.Domain.Common.Enums
 {
-    public enum TypeOfUnit_Enum
+    public enum TypeOfUnitEnum
     {
-        weight,
-        quantity, 
-        volume,
-        length
+        WEIGHT,
+        QUANTITY, 
+        VOLUME,
+        LENGTH, 
     }
 }
