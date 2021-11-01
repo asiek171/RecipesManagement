@@ -44,7 +44,7 @@ namespace RecipesManagement.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpGet("{userId}/recipes")]
+        [HttpGet("{userId}/list")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
@@ -58,7 +58,7 @@ namespace RecipesManagement.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpGet("recipes")]
+        [HttpGet("tag")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
@@ -70,9 +70,9 @@ namespace RecipesManagement.Controllers
         /// <summary>
         /// Get recipes by filter
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="filter"></param>
         /// <returns></returns>
-        [HttpGet("recipes")]
+        [HttpGet("filter")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
@@ -82,10 +82,24 @@ namespace RecipesManagement.Controllers
         }
 
         /// <summary>
+        /// Get recipes by rating
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet("rated")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        public async Task<ActionResult> GetByRating(string filter)
+        {
+            return NotFound();
+
+        }
+        /// <summary>
         /// Create new recipe 
         /// </summary>
         /// <returns></returns>
-        [HttpPost("{userId}")]
+        [HttpPost("{userId}/create")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
@@ -98,7 +112,7 @@ namespace RecipesManagement.Controllers
         /// Update only some part of typed recipe
         /// </summary>
         /// <returns></returns>
-        [HttpPatch("{userId}")]
+        [HttpPatch("{userId}/update")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
@@ -122,14 +136,14 @@ namespace RecipesManagement.Controllers
 
 
         /// <summary>
-        /// Add photo to recipe
+        /// Add resource to recipe (eg. photo)
         /// </summary>
         /// <returns></returns>
-        [HttpPost("{userId}")]
+        [HttpPost("{id}/resource")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
-        public async Task<ActionResult> AddPhoto([FromBody] string uri)
+        public async Task<ActionResult> AddResource()//[FromBody] ResoutceDto resource
         {
             return NotFound();
         }
@@ -138,7 +152,7 @@ namespace RecipesManagement.Controllers
         /// Add rate to recipe
         /// </summary>
         /// <returns></returns>
-        [HttpPost("{Id}")]
+        [HttpPost("{Id}/rate")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
@@ -149,14 +163,14 @@ namespace RecipesManagement.Controllers
 
 
         /// <summary>
-        /// Add comment to recipe
+        /// Add comment to recipe 
         /// </summary>
         /// <returns></returns>
-        [HttpPost("{Id}")]
+        [HttpPost("{Id}/comment")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
-        public async Task<ActionResult> PostComment()//[FromBody] CommentDto model
+        public async Task<ActionResult> PostComment()//[FromBody] int id
         {
             return NotFound();
         }

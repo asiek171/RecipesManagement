@@ -9,10 +9,10 @@ namespace RecipesManagement.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CommentController : ControllerBase
+    public class CategoryController : ControllerBase
     {
         /// <summary>
-        /// Get all comments
+        /// Get all categories
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -21,11 +21,11 @@ namespace RecipesManagement.Controllers
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         public async Task<ActionResult> Get()
         {
-            return NotFound(); 
+            return NotFound();
         }
 
         /// <summary>
-        /// Get comments by userId (rated and given)
+        /// Get category by Id
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
@@ -33,53 +33,26 @@ namespace RecipesManagement.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
-        public async Task<ActionResult> GetByUserId(int userId)
+        public async Task<ActionResult> Get(int id)
         {
             return NotFound();
         }
-
+       
         /// <summary>
-        /// Get comments for typed recipe by recipeId
-        /// </summary>
-        /// <param name="recipeId"></param>
-        /// <returns></returns>
-        [HttpGet("{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status403Forbidden)]
-        public async Task<ActionResult> GetForRecipe(int recipeId)
-        {
-            return NotFound();
-        }
-
-        /// <summary>
-        /// Create new comment 
+        /// Create new category
         /// </summary>
         /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
-        public async Task<ActionResult> Post()//[FromBody] CommentDto model)
-        {
-            return NotFound(); 
-        }
-
-        /// <summary>
-        /// Update only some part of typed comment
-        /// </summary>
-        /// <returns></returns>
-        [HttpPatch]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status403Forbidden)]
-        public async Task<ActionResult> Patch()//[FromBody] CommentDto model)
+        public async Task<ActionResult> Post()//[FromBody] CategoryDto model)
         {
             return NotFound();
         }
 
         /// <summary>
-        /// Remove comment from service (inactivate)
+        /// Remove category from service (inactivate)
         /// </summary>
         /// <returns></returns>
         [HttpPost("{id}")]
@@ -90,6 +63,5 @@ namespace RecipesManagement.Controllers
         {
             return NotFound();
         }
-
     }
 }
