@@ -10,7 +10,9 @@ namespace RecipesManagement.Domain.Entities
 {
     public class Unit : AdiutableEntity
     {
-        public int Value { get; set; }
+        public string Value { get; set; }
+        public string ValuePlural { get; set; }
         public TypeOfUnitEnum Type { get; set; }
+
     }
 }

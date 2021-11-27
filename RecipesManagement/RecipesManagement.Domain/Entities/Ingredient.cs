@@ -1,4 +1,5 @@
 ﻿using RecipesManagement.Domain.Common;
+using RecipesManagement.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace RecipesManagement.Domain.Entities
 {
     public class Ingredient : AdiutableEntity
     {
-        public string Value { get; set; }
+        public IngredientFull Value { get; set; }
     }
 }
