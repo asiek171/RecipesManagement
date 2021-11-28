@@ -16,7 +16,20 @@ namespace RecipesManagement.Persistance
 
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder) { }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<Ingredient> Ingredients { get; set; }
+        public DbSet<Rate> Rates { get; set; }
+        public DbSet<RecipeCategory> RecipeCategories { get; set; }
+        public DbSet<RecipeResource> RecipeResources { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+        public DbSet<Unit> Units { get; set; }
+        public DbSet<User> Users { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder) {
+
+            modelBuilder.Entity<User>().OwnsOne(p => p.UserName);
+            modelBuilder.Entity<Ingredient>().OwnsOne(p => p.Value);
+        }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {

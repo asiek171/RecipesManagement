@@ -9,14 +9,14 @@ namespace RecipesManagement.Domain.ValueObjects
 {
     public class IngredientFull : ValueObject
     {
-        public Fraction Quantity { get; set; }
+        public string Quantity { get; set; }
         public string Value { get; set; }
         public Unit Unit { get; set; }
 
         public override string ToString()
         {
             
-            return $"{Quantity.ToString()} {Unit.Value} {Value}";
+            return $"{Quantity} {Unit.Value} {Value}";
         }
 
         protected override IEnumerable<object> GetEqualityComponents()
