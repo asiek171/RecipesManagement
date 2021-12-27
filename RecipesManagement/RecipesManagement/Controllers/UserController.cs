@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RecipesManagement.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/user")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -21,7 +21,7 @@ namespace RecipesManagement.Controllers
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         public async Task<ActionResult> Get()
         {
-            return NotFound(); 
+            return NotFound();
         }
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace RecipesManagement.Controllers
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         public async Task<ActionResult> Post()//[FromBody] UserDto model)
         {
-            return NotFound(); 
+            return NotFound();
         }
 
         /// <summary>
@@ -67,11 +67,11 @@ namespace RecipesManagement.Controllers
         /// Remove user from service (inactivate)
         /// </summary>
         /// <returns></returns>
-        [HttpPost("{id}")]
+        [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
-        public async Task<ActionResult> Delete([FromBody] int id)
+        public async Task<ActionResult> Delete(int id)
         {
             return NotFound();
         }
@@ -81,7 +81,8 @@ namespace RecipesManagement.Controllers
         /// Add user to newsletter
         /// </summary>
         /// <returns></returns>
-        [HttpPost("{id}")]
+        [HttpPost]
+        [Route("newsletter")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]

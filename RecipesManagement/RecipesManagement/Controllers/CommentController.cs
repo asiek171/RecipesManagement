@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RecipesManagement.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/comment")]
     [ApiController]
     public class CommentController : ControllerBase
     {
@@ -21,7 +21,7 @@ namespace RecipesManagement.Controllers
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         public async Task<ActionResult> Get()
         {
-            return NotFound(); 
+            return NotFound();
         }
 
         /// <summary>
@@ -29,7 +29,7 @@ namespace RecipesManagement.Controllers
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        [HttpGet("{id}")]
+        [HttpGet("user/{userId}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
@@ -43,7 +43,7 @@ namespace RecipesManagement.Controllers
         /// </summary>
         /// <param name="recipeId"></param>
         /// <returns></returns>
-        [HttpGet("{id}")]
+        [HttpGet("recipe/{recipeId}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
@@ -62,7 +62,7 @@ namespace RecipesManagement.Controllers
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         public async Task<ActionResult> Post()//[FromBody] CommentDto model)
         {
-            return NotFound(); 
+            return NotFound();
         }
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace RecipesManagement.Controllers
         /// Remove comment from service (inactivate)
         /// </summary>
         /// <returns></returns>
-        [HttpPost("{id}")]
+        [HttpDelete]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]

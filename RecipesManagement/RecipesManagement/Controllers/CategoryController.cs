@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RecipesManagement.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/category")]
     [ApiController]
     public class CategoryController : ControllerBase
     {
@@ -37,7 +37,7 @@ namespace RecipesManagement.Controllers
         {
             return NotFound();
         }
-       
+
         /// <summary>
         /// Create new category
         /// </summary>

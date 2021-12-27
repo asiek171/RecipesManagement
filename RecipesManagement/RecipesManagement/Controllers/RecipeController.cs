@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RecipesManagement.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/recipe")]
     [ApiController]
     public class RecipeController : ControllerBase
     {
