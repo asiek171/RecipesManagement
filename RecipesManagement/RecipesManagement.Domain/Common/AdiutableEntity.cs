@@ -8,12 +8,12 @@ namespace RecipesManagement.Domain.Common
     public class AdiutableEntity
     {
         public int Id { get; set; }
-        public User CreatedBy { get; set; }
+        public string CreatedBy { get; set; }
         public DateTime Created { get; set; }
-        public User ModifiedBy { get; set; }
+        public string ModifiedBy { get; set; }
         public DateTime? Modified { get; set; }
         public int StatusId { get; set; }
-        public User InactivatedBy { get; set; }
+        public string InactivatedBy { get; set; }
         public DateTime? Inactivated { get; set; }
     }
 }

@@ -11,12 +11,12 @@ namespace RecipesManagement.Domain.ValueObjects
     {
         public string Quantity { get; set; }
         public string Value { get; set; }
-        public Unit Unit { get; set; }
+        public string Unit { get; set; }
 
         public override string ToString()
         {
             
-            return $"{Quantity} {Unit.Value} {Value}";
+            return $"{Quantity} {Unit} {Value}";
         }
 
         protected override IEnumerable<object> GetEqualityComponents()

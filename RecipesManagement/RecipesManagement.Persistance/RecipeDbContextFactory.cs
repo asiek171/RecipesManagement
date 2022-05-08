@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RecipesManagement.Persistance
 {
-    public class MovieDbContextFactory : DesignTimeDbContextFactoryBase<RecipeDbContext>
+    public class RecipeDbContextFactory : DesignTimeDbContextFactoryBase<RecipeDbContext>
     {
         protected override RecipeDbContext CreateNewInstance(DbContextOptions<RecipeDbContext> options)
         {

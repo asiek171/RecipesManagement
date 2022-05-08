@@ -11,7 +11,7 @@ namespace RecipesManagement.Persistance
 {
     public class RecipeDbContext :DbContext
     {
-        public RecipeDbContext(DbContextOptions<RecipeDbContext> options) : base()
+        public RecipeDbContext(DbContextOptions<RecipeDbContext> options) : base(options)
         {
 
         }
@@ -38,18 +38,18 @@ namespace RecipesManagement.Persistance
                 switch (entry.State)
                 {
                     case EntityState.Added:
-                        entry.Entity.CreatedBy = new User();
+                        entry.Entity.CreatedBy = "dbUp";
                         entry.Entity.Created = DateTime.Now;
                         entry.Entity.StatusId = 1;
                         break;
                     case EntityState.Modified:
-                        entry.Entity.ModifiedBy = new User();
+                        entry.Entity.ModifiedBy = "dbUp";
                         entry.Entity.Modified = DateTime.Now;
                         break;
                     case EntityState.Deleted:
-                        entry.Entity.ModifiedBy = new User();
+                        entry.Entity.ModifiedBy = "dbUp";
                         entry.Entity.Modified = DateTime.Now;
-                        entry.Entity.InactivatedBy = new User();
+                        entry.Entity.InactivatedBy = "dbUp";
                         entry.Entity.Inactivated = DateTime.Now;
                         entry.Entity.StatusId = 0;
                         entry.State = EntityState.Modified;

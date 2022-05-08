@@ -6,6 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using RecipesManagement.Infrastructure;
+using RecipesManagement.Persistance;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,16 +27,28 @@ namespace RecipesManagement
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //  services.AddInfrastructure(Configuration);
-           // services.AddPersistance(Configuration);
+            //services.AddCors(options =>
+            //   options.AddPolicy(name: "MyAllowSpecificOrigins",
+            //   builder =>
+            //   {
+            //       builder.WithOrigins("https://localhost:44359");
+            //   }));
+
+            services.AddInfrastructure(Configuration);
+            services.AddPersistance(Configuration);
             services.AddControllers();
 
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "WebApplication", Version = "v1" });
+           //     var filePath = ConfigurationPath.Combine(System.AppContext.BaseDirectory, "RecipesManagemenr.Api.xml");
+             //   c.IncludeXmlComments(filePath);
             });
+
+            services.AddHealthChecks();
         }
 
+        
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -49,6 +63,8 @@ namespace RecipesManagement
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthorization();
 

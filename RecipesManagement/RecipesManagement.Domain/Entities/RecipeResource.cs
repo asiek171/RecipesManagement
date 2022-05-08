@@ -10,7 +10,5 @@ namespace RecipesManagement.Domain.Entities
     public class RecipeResource : AdiutableEntity
     {
         public string Uri { get; set; }
-        public int RecipeId { get; set; }
-        public Recipe Recipe { get; set; }
     }
 }

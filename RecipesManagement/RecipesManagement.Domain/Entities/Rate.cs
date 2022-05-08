@@ -10,9 +10,5 @@ namespace RecipesManagement.Domain.Entities
     public class Rate : AdiutableEntity
     {
         public int Value { get; set; }
-        public int RecipeId { get; set; }
-        public Recipe Recipe { get; set; }
-        public int RatedById { get; set; }
-        public User RatedBy { get; set; }
     }
 }
